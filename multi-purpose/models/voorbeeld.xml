@@ -10,8 +10,7 @@ k = 1,62
 Frol = 76
 </startwaarden>
 <modelregels>
-//Examen VWO 2018-I
-//Uitrijden van een auto
+//Herhaal deze regels
 Flucht = k * v^2
 Fres = Flucht + Frol
 a = - Fres / m
