@@ -18,8 +18,6 @@ a = - Fres / m
 dv = a * dt
 v = v + dv
 t = t + dt
-als t <= 300 dan
-    Stop
-eindals
+als t >= 8 dan Stop eindals
 </modelregels>
 </modelleertaal>

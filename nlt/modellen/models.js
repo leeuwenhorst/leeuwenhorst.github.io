@@ -1,5 +1,5 @@
 // definieer hier de modellen
 
 var model_index = [
-    {url:'modellen/voorbeeld.xml', title: 'Voorbeeld model.'},
+    {url:'modellen/voorbeeld.xml', title: 'Voorbeeld Model'},
 ];
