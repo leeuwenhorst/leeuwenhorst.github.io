@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang | default: "en-US" }}">
 
 <head>
 	<meta charset="utf-8">
 	<title>Modelleertaal webapp</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico?">
 
 	<style>
 		html {
 		  font-family: Helvetica, arial, sans-serif;
 			font-size: 100%;
 		}
-
-		table {
-			border: 1px solid black;
+		
+		h2 {
+		  margin-bottom: 5px;
 		}
 
 		th, td {
 			text-align: center;
 			border: 1px solid black;
 			padding: 5px;
+		}
+		
+		table {
+			border: 1px solid black;
 		}
 
 		table.app {
@@ -55,28 +60,27 @@
 	  .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
 
 	</style>
-	<script src="../multi-purpose/scripts/jquery-3.2.1.min.js"></script>
-	<script src="../multi-purpose/scripts/jquery.flot.js"></script>
-	<script src="../multi-purpose/scripts/jquery.flot.axislabels.js"></script>
+	<script src="/assets/scripts/jquery-3.2.1.min.js"></script>
+	<script src="/assets/scripts/jquery.flot.js"></script>
+	<script src="/assets/scripts/jquery.flot.axislabels.js"></script>
 </head>
 
 
 <body>
 	<div id="werkBlad">
-		<!-- CSS zorg voor met werkvlak met schaduw -->
-		<h2><a href="https://github.com/tomkooij/modelleertaal">Modelleertaal</a></h2>
-		<p>
-		<div>
-				Kies model:
-				<select id="model_keuze">
-	    <option value="0">model.js niet geladen!</option>
-	  </select>
-		of: <input type="file" id="fileinput">
-	  </div>
+		<h2>{{ page.modelname }}</h2>
+		<a href="/">Homepage</a><br>
+		<div style="margin-top: 5px;">
+			Kies model:
+			<select id="model_keuze">
+				<option value="0">model.js niet geladen!</option>
+			</select>
+			of: <input type="file" id="fileinput">
+		</div>
 	</div>
 	<div id="werkBlad">
-			<p>
-				<div>
+		<p>
+			<div>
 					<input id="run" type="button" value="RUN!">
 					Aantal iteraties = <input type="text" id="NBox" value="1000" size=5>.
 					<input id="continue" type="button" value="Voeg toe:">
@@ -84,23 +88,22 @@
 					iteraties. Debugger:
 					<input id="trace" type="button" value="Volgende regel">
 				<div>
-				<div>
+					<div>
 					<table class="app">
 						<tr>
-						  <td>
+							<td>
 								Status: <span id="status_bar"></span>
 							</td>
 							<td>Modelregels:</td>
 							<td>Startwaarden:</td>
-					 </tr>
-  					<tr>
-
+						</tr>
+						<tr>
 							<td rowspan = "2" class="graphbox"><div id="graph" class="graph" ></div>
 								<p>
-								verticaal: <select id="y_var"><option value=""></option></select> horizontaal: <select id="x_var"><option value=""></option></select>
+									verticaal: <select id="y_var"><option value=""></option></select> horizontaal: <select id="x_var"><option value=""></option></select>
 									<input id="plot" type="button" value="Plot!">
-								<p>
-									Aflezen: <span id="hoverdata"></span>
+									<p>
+										Aflezen: <span id="hoverdata"></span>
 
 							</td>
 							<td style="vertical-align:top" width=300px><textarea id="modelregels" rows=15 cols=30>//Modelregels:</textarea>
@@ -110,33 +113,33 @@
 							</td>
 							<td style="vertical-align:top" width=200px align="top"><textarea id="startwaarden" rows=15 cols=20>//Startwaarden:</textarea></td>
 						</tr>
-				  </table>
+					</table>
+					</div>
 				</div>
-	</div>
 
-	<div id="werkBlad">
-		<div id="datatable">Hier komt een tabel...</div>
-	</div>
-
-	<div id="werkBlad">
-		<div id="hack_toggle">Klik voor meer opties...</div>
-		<div id="hacks">
-			<input id="set_max_rows" type="button" value="Reduceer aantal punten in plot tot maximaal: ">
-			<input type="text" id="max_rows" value="100" size=5><br>
-			<input id="download_xml" type="button" value="Download Modelregels:">
-			<input type="text" id="xml_filename" value="model.xml" size=15><br>
-			<input id="download_pgf" type="button" value="Download PGFPlot:">
-			<input type="text" id="pgf_filename" value="pgfplot.tex" size=15><br>
-			<input id="download_tsv" type="button" value="Download TSV:">
-			<input type="text" id="tsv_filename" value="model_data.tsv" size=15>
+		<div id="werkBlad">
+			<div id="datatable">Hier komt een tabel...</div>
 		</div>
-	</div>
 
-	<script src="modellen/models.js"></script>
-	<script src="../multi-purpose/scripts/modelleertaal-app.browser.js"></script>
-	<link rel="stylesheet" href="../multi-purpose/scripts/codemirror.css">
-	<script src="../multi-purpose/scripts/codemirror.js"></script>
-  <script src="../multi-purpose/scripts/codemirror-mode-modelleertaal.js"></script>
+		<div id="werkBlad">
+			<div id="hack_toggle">Klik voor meer opties...</div>
+			<div id="hacks">
+				<input id="set_max_rows" type="button" value="Reduceer aantal punten in plot tot maximaal: ">
+				<input type="text" id="max_rows" value="100" size=5><br>
+				<input id="download_xml" type="button" value="Download Modelregels:">
+				<input type="text" id="xml_filename" value="model.xml" size=15><br>
+				<input id="download_pgf" type="button" value="Download PGFPlot:">
+				<input type="text" id="pgf_filename" value="pgfplot.tex" size=15><br>
+				<input id="download_tsv" type="button" value="Download TSV:">
+				<input type="text" id="tsv_filename" value="model_data.tsv" size=15>
+			</div>
+		</div>
+
+		<script src= {{page.modellen}} ></script>
+		<script src="/assets/scripts/modelleertaal-app.browser.js"></script>
+		<link rel="stylesheet" href="../assets/css/codemirror.css">
+		<script src="/assets/scripts/codemirror.js"></script>
+		<script src="/assets/scripts/codemirror-mode-modelleertaal.js"></script>
 
 	<script type="text/javascript">
 		m = new modelleertaalapp_js.ModelleertaalApp({
