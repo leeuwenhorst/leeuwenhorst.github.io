@@ -11,4 +11,4 @@ Dit is een website voor modeleren van het Leeuwenhorst. Het is gebaseerd op de <
 ## Credits
 F. Dutruel - Developer & designer <br>
 A.C. van Berkel - Begeleider & model maker<br>
-<a href="https://github.com/tomkooij/modelleertaal">tomkooij</a> - Maker modeleer webapp
+[Tomkooij](https://github.com/tomkooij/modelleertaal) - Maker modeleer webapp
